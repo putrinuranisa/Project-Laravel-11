@@ -19,19 +19,17 @@ Route::group(['middleware'=>'guest'], function() {
 })->middleware('guest');
 
 //admin route
-Route::group(['middleware'=> 'admin'], function() {
-    Route::get('/admin', function(){
-        return view('pages.admin.index');
-    })->name('admin.dashboard');
+Route::group(['middleware' => 'admin'], function() {
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-    Route::get('/admin-logout', [AuthController::class, 'admin_logout'])->name('admin.logout');
+//product Route
+Route::get('/product', [ProductController::class, 'index'])->name('admin.product');
+
+Route::get('/admin-logout', [AuthController::class, 'admin_logout'])->name('admin.logout');
 })->middleware('admin');
 
 //user route
 Route::group(['middleware' => 'web'], function() {
-    Route::get('/user', function() {
-        return view('pages.user.index');
-    })->name('user.dasboard');
-
+    Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/user-logout', [AuthController::class, 'user_logout'])->name('user.logout');
 })->middleware('web');

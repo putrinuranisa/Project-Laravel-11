@@ -12,8 +12,8 @@ class AdminController extends Controller
     public function dashboard()
     {
         $products = Product::count();
-        $user = User::count();
+        $users = User::count();
 
-        return view('pages.admin.index', compact('product', 'users'));
+        return view('pages.admin.index', compact('products', 'users'));
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.admin.main')
+@extends('layout.admin.main')
 @section('title', 'Admin Product')
 @section('content')
 <div class="main-content">
@@ -31,7 +31,7 @@
                         <td>
                             <a href="#" class="badge badge-info">Detail</a>
                             <a href="#" class="badge badge-warning">Edit</a>
-                            <a href="" class="badge badge-danger">Hapus</a>
+                            <a href="#" class="badge badge-danger">Hapus</a>
                         </td>
                     </tr>
                     @empty
