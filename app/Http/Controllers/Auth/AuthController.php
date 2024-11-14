@@ -26,7 +26,7 @@ class AuthController extends Controller
             return redirect()->route('admin.dashboard');
         } elseif (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             toast('Selamat datang!', 'success');
-            return redirect()->route('user.dasboard');
+            return redirect()->route('user.dashboard');
         } else {
             Alert::error('Login Gagal!', 'Email atau password tidak valid!');
             return redirect()->back();
