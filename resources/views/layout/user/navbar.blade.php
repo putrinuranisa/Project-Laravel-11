@@ -2,8 +2,8 @@
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
-                <a class="navbar-brad logo_h" href="index.html"><ing src="{{ asset('assets/templates/user/img/logo.png') }}" alt=""></a>
-                    <button class="navbar-togggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <a class="navbar-brad logo_h" href="index.html"><img src="{{ asset('assets/templates/user/img/logo.png') }}" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSuppportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>

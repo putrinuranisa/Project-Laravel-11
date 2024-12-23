@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Distributor extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'id_distributor', 'name', 'price', 'category', 'description', 'image', 'discount'
+    protected $fillable=[
+        'nama_distributor', 'kota', 'provinsi', 'kontak', 'email'
     ];
 }

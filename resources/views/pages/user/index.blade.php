@@ -52,7 +52,12 @@
                 <div class="product-details">
                     <h6>{{ $item->name }}</h6>
                     <div class="price">
-                        <h6>Harga: {{ $item->price }} Points</h6>
+                        @if($item->discount > 0)
+                        <h6><del>{{ $item->price }} Points</del></h6>
+                        <h6>{{ $item->price - ($item->price * $item ->discount / 100) }} Points</h6>
+                        @else
+                        <h6>{{ $item->price }} Points</h6>
+                        @endif
                     </div>
                     <div class="prd-bottom">
                         <a class="social-info" href="javascript:void(0);" onclick="confirmPurchase('{{ $item->id }}', '{{ Auth::user()->id }}')">

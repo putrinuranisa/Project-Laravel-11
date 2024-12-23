@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -6,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -55,7 +57,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' =>'required',
             'email' =>'required|email:dns',
-            'password'=>'requred|min:8|max:8',
+            'password'=>'required|min:8|max:12',
         ]);
 
         if ($validator->fails()) {
@@ -71,8 +73,8 @@ class AuthController extends Controller
         ]);
 
         if ($user) {
-            Alert::seccess('Berhasil!', 'Akun baru berhasil dibuat, silahkan melakukan login!');
-            return redirec('/');
+            Alert::success('Berhasil!', 'Akun baru berhasil dibuat, silahkan melakukan login!');
+            return redirect('/');
         } else {
             Alert::error('Gagal!', 'Akun gagal dibuat, silahkan coba lagi!');
             return redirect()->back();

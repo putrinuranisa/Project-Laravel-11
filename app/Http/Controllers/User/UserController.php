@@ -26,18 +26,18 @@ class UserController extends Controller
 
     public function purchase($productId, $userId)
     {
-        $product = Product::findOrFail($productId);
+        $products = Product::findOrFail($productId);
         $user = User::findOrFail($userId);
 
-        if ($user->point > $product->price) {
-            $totalPoints = $user->point - $product->price;
+        if ($user->point > $products->price) {
+            $totalPoints = $user->point - $products->price;
 
             $user->update([
                 'point' => $totalPoints,
             ]);
 
             Alert::success('Berhasil!', 'Produk berhasil dibeli!');
-            return  redirect()->back();
+            return redirect()->back();
         } else {
             Alert::error('Gagal!', 'point anda tidak cukup!');
             return redirect()->back();

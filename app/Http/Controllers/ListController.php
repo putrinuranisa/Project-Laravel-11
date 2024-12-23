@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Distributor;
 use Illuminate\Http\Request;
 use App\Models\ItemList; 
 

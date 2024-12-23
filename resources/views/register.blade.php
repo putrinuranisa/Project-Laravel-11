@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="
  {{ asset('assets/templates/user/img/fav.png') }}">
 <!-- Author Meta -->
-<meta name="author content="CodePixar">
+<meta name="author" content="CodePixar">
 <!-- Meta Description -->
 <meta name="description" content="">
 <!-- Meta Keyword -->

@@ -12,10 +12,23 @@
             </div>
         </div>
         <a href="{{ route('admin.product') }}" class="btn btn-icon icon-left btn-warning"> Kembali</a>
-        <div class="card mt-4"><form action="{{ route('product.update', $product->id) }}" class="needs-validation" novalidate="" enctype="multipart/form-data" method="POST">
+        <div class="card mt-4">
+            <form action="{{ route('admin.product.update', $product->id) }}" class="needs-validation" novalidate="" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card-body">
                 <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="id_distributor">Nama Distributor</label>
+                                <select name="id_distributor" class="form-control">
+                                    @foreach ($distributor as $item)
+                                    <option value="{{ $item->id }}" {{ $product->id_distributor == $item->id ? 'selected' : '' }}>{{ $item->nama_distributor }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label for="name">Nama Produk</label>
@@ -32,6 +45,13 @@
                             <div class="invalid-feedback">
                                 Kolom ini harus di isi!
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="discount">Diskon (%)</label>
+                            <input id="discount" type="number" class="form-control" name="discount" placeholder="Diskon (%)" value="{{ $product->discount ?? 0 }}" required>
+                            <div class="invalid-feedback">Kolom ini harus di isi!</div>
                         </div>
                     </div>
                     <div class="col-6">
